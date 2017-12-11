@@ -1,4 +1,4 @@
-package com.blur.library;
+package com.blur.library.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
