@@ -1,4 +1,4 @@
-package com.chiclaim.modularization.router.compiler;
+package com.blur.router.compiler.utils;
 
 /**
  * Description：

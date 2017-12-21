@@ -1,17 +1,22 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 25
     buildToolsVersion "26.0.2"
 
     defaultConfig {
-        applicationId "com.blur.music"
         minSdkVersion 16
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
 
     }
     buildTypes {
@@ -29,5 +34,9 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.1'
+    compile project(':business')
+    compile project(':router-api')
+    annotationProcessor project(":router-compiler")
+
     testCompile 'junit:junit:4.12'
 }

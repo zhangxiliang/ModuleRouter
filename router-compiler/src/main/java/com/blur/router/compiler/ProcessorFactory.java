@@ -1,9 +1,12 @@
-package com.blur.router.compiler.processor;
+package com.blur.router.compiler;
 
 import com.blur.router.annotation.Autowired;
 import com.blur.router.annotation.Components;
 import com.blur.router.annotation.Router;
-import com.blur.router.compiler.AbstractAnnotationProcess;
+import com.blur.router.compiler.processor.AbstractAnnotationProcess;
+import com.blur.router.compiler.processor.AutoWireProcessor;
+import com.blur.router.compiler.processor.ComponentProcessor;
+import com.blur.router.compiler.processor.RouteProcessor;
 import com.google.auto.service.AutoService;
 
 import java.util.HashMap;
@@ -66,7 +69,6 @@ public class ProcessorFactory extends AbstractProcessor{
         for(Map.Entry<String,AbstractAnnotationProcess> abstractProcessorEntry:processorHashMap.entrySet()){
             abstractProcessorEntry.getValue().process(set,roundEnvironment);
         }
-
         return true;
     }
 

@@ -1,32 +1,22 @@
-package com.blur.router.compiler;
+package com.blur.router.compiler.processor;
 
 import com.blur.router.annotation.Router;
 import com.blur.router.annotation.utils.Constant;
+import com.blur.router.compiler.AutowireRouteClass;
 import com.blur.router.compiler.utils.RouteJavaFileUtils;
-import com.google.auto.service.AutoService;
 import com.squareup.javapoet.ClassName;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
-import javax.annotation.processing.AbstractProcessor;
-import javax.annotation.processing.Filer;
-import javax.annotation.processing.Messager;
 import javax.annotation.processing.ProcessingEnvironment;
-import javax.annotation.processing.Processor;
 import javax.annotation.processing.RoundEnvironment;
 import javax.lang.model.element.Element;
 import javax.lang.model.element.TypeElement;
-import javax.tools.Diagnostic;
-
-import static com.blur.router.annotation.utils.Constant.KEY_MODULE_NAME;
 
 
-public class RouteProcessor extends AbstractAnnotationProcess{
+public class RouteProcessor extends AbstractAnnotationProcess {
 
 
 

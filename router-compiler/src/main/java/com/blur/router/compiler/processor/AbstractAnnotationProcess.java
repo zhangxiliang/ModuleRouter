@@ -1,4 +1,4 @@
-package com.blur.router.compiler;
+package com.blur.router.compiler.processor;
 
 import java.util.Map;
 import java.util.Set;

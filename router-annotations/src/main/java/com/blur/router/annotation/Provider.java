@@ -1,4 +1,4 @@
-package com.blur.library.annotation;
+package com.blur.router.annotation;
 
 /**
  * Created by zhangxiliang on 2017/12/8.

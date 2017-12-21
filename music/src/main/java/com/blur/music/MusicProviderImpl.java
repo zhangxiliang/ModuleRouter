@@ -3,6 +3,7 @@ package com.blur.music;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.blur.business.dance.MusicProvider;
 import com.blur.router.annotation.IProvider;
 import com.blur.router.annotation.Router;
 
@@ -11,7 +12,7 @@ import com.blur.router.annotation.Router;
  */
 
 @Router(path = "/music/musicprovider")
-public class MusicProviderImpl  {
+public class MusicProviderImpl  implements MusicProvider{
 
 
     public void sayHello(String text){

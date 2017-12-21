@@ -5,4 +5,6 @@ package com.blur.router.api.utils;
  */
 
 public class ClassType {
+
+
 }

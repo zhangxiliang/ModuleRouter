@@ -1,9 +1,8 @@
-package com.chiclaim.modularization.router.compiler.utils;
+package com.blur.router.compiler.utils;
 
-import com.chiclaim.modularization.router.Constant;
-import com.chiclaim.modularization.router.IProvider;
-import com.chiclaim.modularization.router.compiler.FieldTypeKind;
-import com.chiclaim.modularization.router.compiler.TargetTypeKind;
+
+import com.blur.router.annotation.IProvider;
+import com.blur.router.annotation.utils.Constant;
 import com.squareup.javapoet.ParameterizedTypeName;
 import com.squareup.javapoet.TypeName;
 

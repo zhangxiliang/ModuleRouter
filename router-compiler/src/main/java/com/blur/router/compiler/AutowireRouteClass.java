@@ -4,6 +4,8 @@ package com.blur.router.compiler;
 import com.blur.router.annotation.Autowired;
 import com.blur.router.annotation.Router;
 import com.blur.router.annotation.utils.Constant;
+import com.blur.router.compiler.utils.FieldTypeKind;
+import com.blur.router.compiler.utils.ProcessorUtils;
 import com.blur.router.compiler.utils.RouteJavaFileUtils;
 import com.squareup.javapoet.ClassName;
 import com.squareup.javapoet.CodeBlock;
@@ -36,20 +38,20 @@ public class AutowireRouteClass {
     private List<AutowireField> fields;
 
 
-    static AutowireRouteClass createWhenApplyClass(Element element) {
+   public static AutowireRouteClass createWhenApplyClass(Element element) {
         AutowireRouteClass bindClass = new AutowireRouteClass();
         bindClass.targetTypeName = element.asType().toString();
         bindClass.value = element.getAnnotation(Router.class).path();
         return bindClass;
     }
 
-    static AutowireRouteClass createWhenApplyField(Element element) {
+   public static AutowireRouteClass createWhenApplyField(Element element) {
         TypeElement enclosingElement = (TypeElement) element.getEnclosingElement();
         AutowireRouteClass autowireRouteClass = new AutowireRouteClass();
         String packageName = enclosingElement.getQualifiedName().toString();
         packageName = packageName.substring(0, packageName.lastIndexOf("."));
         String className = enclosingElement.getSimpleName().toString();
-        // autowireRouteClass.typeName = ProcessorUtils.getTypeName(enclosingElement);
+        autowireRouteClass.typeName = ProcessorUtils.getTypeName(enclosingElement);
         autowireRouteClass.value = element.getAnnotation(Autowired.class).name();
         autowireRouteClass.targetTypeName = element.asType().toString();
         autowireRouteClass.className = ClassName.get(packageName, className +
@@ -75,7 +77,7 @@ public class AutowireRouteClass {
         return className;
     }
 
-    JavaFile preJavaFile() {
+    public JavaFile preJavaFile() {
         return JavaFile.builder(className.packageName(), createTypeSpec())
                 .addFileComment("Generated code from " + Constant.LIB_NAME + ". Do not modify!!!")
                 .build();

@@ -8,5 +8,5 @@ import com.blur.router.annotation.IProvider;
 
 public interface MusicProvider extends IProvider {
 
-    public void dance(String text);
+    public void sayHello(String text);
 }

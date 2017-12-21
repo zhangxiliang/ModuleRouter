@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/router-annotations/src/main/java/com/blur/router/annotation/utils/Constant.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/router-compiler/src/main/java/com/blur/router/compiler/AutowireRouteClass.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/router-compiler/src/main/java/com/blur/router/compiler/utils/RouteJavaFileUtils.java" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

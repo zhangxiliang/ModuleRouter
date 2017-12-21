@@ -1,5 +1,6 @@
-package com.chiclaim.modularization.router.compiler;
+package com.blur.router.compiler;
 
+import com.blur.router.compiler.utils.FieldTypeKind;
 import com.squareup.javapoet.TypeName;
 
 /**
@@ -7,7 +8,7 @@ import com.squareup.javapoet.TypeName;
  * Created by kumu
  */
 
-class AutowireField {
+public class AutowireField {
 
     private final String fieldName;
     private final TypeName fieldType;
@@ -23,7 +24,7 @@ class AutowireField {
         this.typeKind = typeKind;
     }
 
-    static AutowireField create(String name, TypeName type, String value, String assignStatement, FieldTypeKind typeKind) {
+    public static AutowireField create(String name, TypeName type, String value, String assignStatement, FieldTypeKind typeKind) {
         return new AutowireField(name, type, value, assignStatement, typeKind);
     }
 
@@ -47,4 +48,14 @@ class AutowireField {
         return typeKind;
     }
 
+    @Override
+    public String toString() {
+        return "AutowireField{" +
+                "fieldName='" + fieldName + '\'' +
+                ", fieldType=" + fieldType +
+                ", annotationValue='" + annotationValue + '\'' +
+                ", assignStatement='" + assignStatement + '\'' +
+                ", typeKind=" + typeKind +
+                '}';
+    }
 }
