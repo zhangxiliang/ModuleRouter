@@ -19,6 +19,7 @@ public class CActivity extends FragmentActivity {
 
     @Autowired(name="home")
     String home;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
