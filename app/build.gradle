@@ -1,12 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion COMPILE_SDK_VERSION as int
+    buildToolsVersion BUILD_TOOLS_VERSION as String
+
     defaultConfig {
+        minSdkVersion  MIN_SDK_VERSION as int
+        targetSdkVersion TARGET_SDK_VERSION as String
         applicationId "com.blur.modulerouter"
-        minSdkVersion 16
-        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -33,7 +34,6 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.1'
     compile project(':music')
     compile project(':business')
-    compile project(':router-api')
-    annotationProcessor project(":router-compiler")
+
     testCompile 'junit:junit:4.12'
 }
