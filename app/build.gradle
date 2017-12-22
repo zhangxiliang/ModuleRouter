@@ -37,7 +37,7 @@ dependencies {
     if(useLocal.toBoolean()){
         annotationProcessor project(":router-compiler")
     }else{
-        annotationProcessor "com.auric.ModuleRouter:router-compiler:${MROUTER_VERSION}"
+        annotationProcessor "com.github.zhangxiliang.ModuleRouter:router-compiler:${MROUTER_VERSION}"
     }
     testCompile 'junit:junit:4.12'
 }
