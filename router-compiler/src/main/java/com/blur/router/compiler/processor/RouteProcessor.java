@@ -30,11 +30,11 @@ public class RouteProcessor extends AbstractAnnotationProcess {
 
     @Override
     public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnvironment) {
-        printValue("begin process router");
         ArrayList<AutowireRouteClass> list = new ArrayList<>();
         Set<? extends Element> routeElements = roundEnvironment.getElementsAnnotatedWith(Router.class);
         for (Element element : routeElements) {
             //printElement(element, Route.class);
+            printValue("begin process router 2"+element.asType().toString());
             list.add(AutowireRouteClass.createWhenApplyClass(element));
         }
 
@@ -48,7 +48,6 @@ public class RouteProcessor extends AbstractAnnotationProcess {
                 e.printStackTrace();
             }
         }
-
 
         return true;
     }

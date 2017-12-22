@@ -37,9 +37,6 @@ import static com.blur.router.annotation.utils.Constant.KEY_MODULE_NAME;
 public class ProcessorFactory extends AbstractProcessor{
 
     private HashMap<String,AbstractAnnotationProcess> processorHashMap=new HashMap<String,AbstractAnnotationProcess>();
-    private Filer filter;
-    private Messager messager;
-    private String moduleName;
 
     @Override
     public Set<String> getSupportedAnnotationTypes() {

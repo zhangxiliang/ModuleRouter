@@ -2,7 +2,6 @@ package com.blur.modulerouter;
 
 import android.app.Application;
 
-import com.blur.router.RouterInit;
 import com.blur.router.annotation.Components;
 import com.blur.router.api.MRouter;
 

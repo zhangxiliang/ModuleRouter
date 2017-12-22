@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
-group='com.github.zhangxiliang'
+group='com.auric'
 
 android {
     compileSdkVersion COMPILE_SDK_VERSION as int
@@ -29,6 +29,10 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:25.3.1'
-    compile project(':router-annotations')
+    if(useLocal.toBoolean()){
+        compile project(':router-annotations')
+    }else{
+        compile 'com.auric.ModuleRouter:router-annotations:1.0.0'
+    }
     testCompile 'junit:junit:4.12'
 }

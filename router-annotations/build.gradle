@@ -1,6 +1,6 @@
 apply plugin: 'java'
 apply plugin: 'com.github.dcendents.android-maven'
-group='com.github.zhangxiliang'
+group='com.auric'
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }

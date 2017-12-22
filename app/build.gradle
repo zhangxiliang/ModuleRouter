@@ -34,6 +34,10 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.1'
     compile project(':music')
     compile project(':business')
-
+    if(useLocal.toBoolean()){
+        annotationProcessor project(":router-compiler")
+    }else{
+        annotationProcessor "com.auric.ModuleRouter:router-compiler:${MROUTER_VERSION}"
+    }
     testCompile 'junit:junit:4.12'
 }

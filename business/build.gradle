@@ -26,8 +26,13 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile project(':router-api')
-    annotationProcessor project(":router-compiler")
+    if(useLocal.toBoolean()){
+        compile project(':router-api')
+        annotationProcessor project(":router-compiler")
+    }else{
+        compile "com.auric.ModuleRouter:router-api:${MROUTER_VERSION}"
+        annotationProcessor "com.auric.ModuleRouter:router-compiler:${MROUTER_VERSION}"
+    }
     compile 'com.android.support:appcompat-v7:25.3.1'
     testCompile 'junit:junit:4.12'
 }
