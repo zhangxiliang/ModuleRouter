@@ -2,6 +2,7 @@ package com.blur.router.compiler;
 
 
 import com.blur.router.annotation.Autowired;
+import com.blur.router.annotation.BindView;
 import com.blur.router.annotation.Router;
 import com.blur.router.annotation.utils.Constant;
 import com.blur.router.compiler.utils.FieldTypeKind;
@@ -35,7 +36,8 @@ public class AutowireRouteClass {
 
     private TypeName typeName;
     private ClassName className;
-    private List<AutowireField> fields;
+    private List<AutowireField> autowireFields;
+    private List<BindViewField> bindViewFields;
 
 
    public static AutowireRouteClass createWhenApplyClass(Element element) {
@@ -52,16 +54,23 @@ public class AutowireRouteClass {
         packageName = packageName.substring(0, packageName.lastIndexOf("."));
         String className = enclosingElement.getSimpleName().toString();
         autowireRouteClass.typeName = ProcessorUtils.getTypeName(enclosingElement);
-        autowireRouteClass.value = element.getAnnotation(Autowired.class).name();
+        //autowireRouteClass.value = element.getAnnotation(Autowired.class).name();
         autowireRouteClass.targetTypeName = element.asType().toString();
         autowireRouteClass.className = ClassName.get(packageName, className +
                 Constant.ROUTE_INIT_MODULE_CLASS_AUTOWIRE_SUFFIX);
-        autowireRouteClass.fields = new ArrayList<>();
-        return autowireRouteClass;
+        autowireRouteClass.autowireFields = new ArrayList<>();
+       autowireRouteClass.bindViewFields = new ArrayList<>();
+       return autowireRouteClass;
     }
 
+
     public void addAnnotationField(AutowireField field) {
-        fields.add(field);
+        autowireFields.add(field);
+    }
+
+
+    public void addAnnotationField(BindViewField field) {
+        bindViewFields.add(field);
     }
 
 
@@ -96,11 +105,27 @@ public class AutowireRouteClass {
         MethodSpec.Builder constructor = MethodSpec.constructorBuilder()
                 .addModifiers(Modifier.PUBLIC);
         constructor.addParameter(targetType, "target", Modifier.FINAL);
-        for (AutowireField bindings : fields) {
+        for (AutowireField bindings : autowireFields) {
             addInitStatement(constructor, bindings);
+        }
+        for(BindViewField bindViewField:bindViewFields){
+            addInitStatement(constructor,bindViewField);
         }
         return constructor.build();
     }
+
+    private void  addInitStatement(MethodSpec.Builder result, BindViewField field){
+        CodeBlock.Builder builder = CodeBlock.builder();
+
+        builder.add("target.$L = ", field.getFieldName());
+
+        builder.add("($T)target.$L",field.getFieldType(),CodeBlock.of(field.getAssignStatement(), field.getAnnotationValue()));
+
+        result.addStatement("$L", builder.build());
+
+
+    }
+
 
     private void addInitStatement(MethodSpec.Builder result, AutowireField field) {
         CodeBlock.Builder builder = CodeBlock.builder();
@@ -139,4 +164,14 @@ public class AutowireRouteClass {
 
     }
 
+    @Override
+    public String toString() {
+        return "AutowireRouteClass{" +
+                "targetTypeName='" + targetTypeName + '\'' +
+                ", value='" + value + '\'' +
+                ", typeName=" + typeName +
+                ", className=" + className +
+                ", fields=" + autowireFields +
+                '}';
+    }
 }

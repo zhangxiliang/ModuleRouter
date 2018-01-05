@@ -1,5 +1,6 @@
 package com.blur.music;
 
+import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -14,11 +15,8 @@ import com.blur.router.annotation.Router;
 @Router(path = "/music/musicprovider")
 public class MusicProviderImpl  implements MusicProvider{
 
-
-    public void sayHello(String text){
-
-        Log.e("MusicProvider","hello jack");
-
+    @Override
+    public void sayHello(Context context, String text) {
+        Toast.makeText(context,text,Toast.LENGTH_SHORT).show();
     }
-
 }

@@ -8,4 +8,10 @@
     android:text="hello b Activity"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content" />
+
+    <Button
+        android:text="自动注入"
+        android:id="@+id/btn_music"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 </LinearLayout>

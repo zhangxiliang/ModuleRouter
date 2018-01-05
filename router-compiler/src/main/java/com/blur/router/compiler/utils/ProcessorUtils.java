@@ -68,6 +68,7 @@ public class ProcessorUtils {
                 types.isSubtype(enclosingElement.asType(), typeFragment);
     }
 
+
     public static String getAssignStatementByTypeKind(FieldTypeKind kind, TargetTypeKind targetTypeKind) {
         boolean isActivity = targetTypeKind == TargetTypeKind.ACTIVITY;
         switch (kind) {

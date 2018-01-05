@@ -1,5 +1,7 @@
 package com.blur.business.dance;
 
+import android.content.Context;
+
 import com.blur.router.annotation.IProvider;
 
 /**
@@ -8,5 +10,5 @@ import com.blur.router.annotation.IProvider;
 
 public interface MusicProvider extends IProvider {
 
-    public void sayHello(String text);
+    public void sayHello(Context context, String text);
 }

@@ -3,9 +3,11 @@ package com.blur.music;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.blur.router.annotation.Autowired;
+import com.blur.router.annotation.BindView;
 import com.blur.router.annotation.Provider;
 import com.blur.router.annotation.Router;
 import com.blur.router.api.MRouter;
@@ -19,6 +21,7 @@ public class BActivity extends FragmentActivity {
 
     @Autowired(name="age")
     String age;
+
 
 
 

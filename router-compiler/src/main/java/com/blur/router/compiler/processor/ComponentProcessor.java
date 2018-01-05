@@ -29,7 +29,7 @@ public class ComponentProcessor extends AbstractAnnotationProcess {
 
     @Override
     public boolean process(Set<? extends TypeElement> set, RoundEnvironment roundEnvironment) {
-
+        printValue("ComponentProcessor process --->");
         List<String> modules = new ArrayList<>();
         Set<? extends Element> ComponentsElements = roundEnvironment.getElementsAnnotatedWith(Components.class);
         for (Element element : ComponentsElements) {

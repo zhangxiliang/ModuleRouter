@@ -13,6 +13,7 @@ public interface Constant {
 
     String ROUTE_INIT_MODULE_CLASS_AUTOWIRE_SUFFIX = "_Autowire";
 
+    String ROUTE_INIT_MODULE_CLASS_BINDVIEW_SUFFIX = "_BindView";
 
 
     String ACTIVITY = "android.app.Activity";
